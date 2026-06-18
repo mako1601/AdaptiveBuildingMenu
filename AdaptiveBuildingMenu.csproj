@@ -5,13 +5,14 @@
     <AssemblyName>AdaptiveBuildingMenu</AssemblyName>
     <RootNamespace>AdaptiveBuildingMenu</RootNamespace>
     <LangVersion>latest</LangVersion>
+    <Version>1.2.0.0</Version>
+    <AssemblyVersion>1.2.0.0</AssemblyVersion>
+    <FileVersion>1.2.0.0</FileVersion>
     <OniManagedPath Condition="'$(OniManagedPath)' == ''">C:\Program Files (x86)\Steam\steamapps\common\OxygenNotIncluded\OxygenNotIncluded_Data\Managed</OniManagedPath>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="PLib" Version="4.24" />
   </ItemGroup>
-
   <ItemGroup>
     <Reference Include="0Harmony">
       <HintPath>$(OniManagedPath)\0Harmony.dll</HintPath>
@@ -42,9 +43,4 @@
       <Private>false</Private>
     </Reference>
   </ItemGroup>
-
-  <Target Name="CopyModAssemblyToRoot" AfterTargets="Build">
-    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(MSBuildProjectDirectory)" />
-    <Copy SourceFiles="$(TargetDir)$(TargetName).pdb" DestinationFolder="$(MSBuildProjectDirectory)" Condition="Exists('$(TargetDir)$(TargetName).pdb')" />
-  </Target>
 </Project>
